@@ -1,0 +1,23 @@
+<div>
+    <div><label for="pokemon-select">Filter a pokemon : </label></div>
+    <input style="margin-right:2px" [(ngModel)]="searchText" placeholder="Search Pokemon">
+    <select [(ngModel)]="selectedValue" id="pokemon-select">
+        <option *ngFor="let pokemon of nomspokemons | filter : searchText " [ngValue]="pokemon">{{pokemon}}</option>
+    </select>
+    <button [disabled]="selectedValue==null" class="btn btn-success" (click)="go()">Go</button>
+</div>
+<div>
+    or
+    <br>
+    Disp all pokemons
+
+</div>
+<div> <button [disabled]="pokemons.length>1" class="btn btn-dark" (click)="dispall()">Disp All</button>
+</div>
+<p> Click on the picture of the pokemon to get more information !
+</p>
+<div>
+    <app-card *ngFor="let pokemon of pokemons" [pokemon]="pokemon.getnom()" [id]="pokemon.getid()"
+        [type]="pokemon.gettype()" [description]="pokemon.getdes()"></app-card>
+</div>
+<div *ngIf="seemore==true"><button class="btn btn-dark" (click)=more()>more</button></div>

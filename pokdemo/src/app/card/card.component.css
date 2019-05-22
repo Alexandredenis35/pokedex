@@ -1,0 +1,12 @@
+:host >>>.ui-card {
+      margin: 10px auto;
+    border-style: solid;
+  }
+  .example-card {
+    max-width: 400px;
+    margin: 10px auto;
+    margin-left: 10px;
+    border-style: solid;
+display: inline-block;
+  }
+  
